@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="row">
+    <div class="col s12 m6 l7 no-padding margin-bottom-30">
+      <img [src]="selectedMovie.imageUrl" alt="{{ selectedMovie.title }}" class="full-size" />
+    </div>
+    <div class="col s12 m6 l5">
+      <div class="center-align">
+        <h1>{{ selectedMovie.title }}</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m6 l7">
+      <div class="movie-details">
+        <div class="row">
+          <div class="movie-info">
+            <p class="inline-block"><strong>Genre:</strong> {{ selectedMovie.genre.name }}</p>
+            <p class="block">
+              Rating: <strong>{{ avgRating }}/10</strong>
+            </p>
+            <p class="block"><strong>Directors:</strong> {{ selectedMovie.directors }}</p>
+            <p class="block"><strong>Cast:</strong> {{ selectedMovie.cast }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="col s12 m6 l5">
+      <div class="rating-section">
+        <input type="range" min="5" max="10" [(ngModel)]="newRating.rating" id="ratingSlider" [disabled]="CanRate()" />
+        <button
+          class="btn waves-effect waves-light purple lighten-1 block margin-bottom-30"
+          (click)="RateMovie()"
+          [disabled]="CanRate()"
+        >
+          Rate Movie: {{ newRating.rating }}
+          <i class="material-icons left">rate_review</i>
+          <i class="material-icons right">star</i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m6 l7">
+      <div class="comments-section padding-20">
+        <h2 class="font-size-35 margin-top-0">Comments:</h2>
+        <div *ngIf="submitedNewComment" class="new-comment">
+          <p>
+            <strong>New comment by {{ submitedNewComment.userName }}:</strong>
+            {{ submitedNewComment.comment }}
+          </p>
+        </div>
+
+        <div *ngFor="let comment of selectedMovie.userComments; let i = index" class="comment">
+          <div
+            [class.purple]="true"
+            [class.margin-bottom-20]="true"
+            [class.z-depth-1]="true"
+            [class.lighten-5]="i % 2 === 0"
+            [class.lighten-4]="i % 2 !== 0"
+            class="padding-20"
+          >
+            <p class="margin-0 margin-bottom-10">
+              <i
+                ><strong>{{ comment.userName }}:</strong></i
+              >
+            </p>
+            <p class="margin-0">{{ comment.comment }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m6 l5">
+      <div class="comment-section">
+        <div class="comment-submit margin-top-15">
+          <label for="textarea2">Enter comment</label>
+          <textarea
+            id="textarea2"
+            class="materialize-textarea"
+            data-length="490"
+            [(ngModel)]="newComment.comment"
+            [disabled]="role === 'Admin' "
+          ></textarea>
+          <button class="btn waves-effect waves-light purple lighten-1 block" (click)="SubmitComment()" [disabled]="role === 'Admin' ">
+            Submit Comment
+            <i class="material-icons left">comment</i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col s12 m6 l6">
+    <p>Name:</p>
+  </div>
+
+  <div class="col s12 m6 l6">
+    <p>Description:</p>
+  </div>
+</div>
+
+<div class="row genre-list z-depth-1" *ngFor="let genre of genres">
+    <div class="col s12 m6 l6">
+      <p class="margin-left-30">{{ genre.name }}</p>
+    </div>
+  
+    <div class="col s12 m6 l6">
+      <p>{{ genre.description }}</p>
+    </div>
+</div>

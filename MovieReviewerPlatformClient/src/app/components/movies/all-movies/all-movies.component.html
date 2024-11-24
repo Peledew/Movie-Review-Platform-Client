@@ -1,0 +1,56 @@
+<form [formGroup]="searchForm" (ngSubmit)="SearchByParameters()">
+  <div class="row">
+    <div class="col s12 m9 l9">
+      <label for="movie_title">Enter...</label>
+      <div class="input-field">
+        <input
+          placeholder="Movie title..."
+          id="movie_title"
+          type="text"
+          class="validate"
+          formControlName="inputTitle"
+        />
+      </div>
+    </div>
+
+    <div class="col s6 m3 l3 center-align">
+      <button class="btn waves-effect waves-light purple lighten-1 margin-top-25" type="submit">
+        Search
+        <i class="material-icons right">search</i>
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m6 l3">
+      <label for="genreSelect">Select genre</label>
+      <select class="block" formControlName="selectedGenreId" id="genreSelect" name="genre">
+        <option active value="" disabled selected>Choose a genre</option>
+        <option *ngFor="let genre of genres" [ngValue]="genre.id">{{ genre.name }}</option>
+      </select>
+    </div>
+
+    <div class="col s12 m6 l3">
+      <label for="release_year">Enter...</label>
+      <input
+        placeholder="Release year..."
+        id="release_year"
+        type="text"
+        class="validate"
+        formControlName="inputReleaseYear"
+      />
+    </div>
+
+    <div class="col s12 m16 l6">
+      <button class="btn waves-effect purple darken-1 margin-top-25 inline-block" (click)="ResetFilters()">
+        Reset filter
+        <i class="material-icons right">autorenew</i>
+      </button>
+    </div>
+  </div>
+</form>
+<div class="row">
+  <div *ngFor="let movie of currentMovies">
+    <app-movie-card [movie]="movie"></app-movie-card>
+  </div>
+</div>

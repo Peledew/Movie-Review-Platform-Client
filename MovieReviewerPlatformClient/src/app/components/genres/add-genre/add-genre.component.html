@@ -1,0 +1,23 @@
+<div class="add-genre">
+  <form (ngSubmit)="onSubmit()">
+    <div class="input-field">
+      <label>Name</label>
+      <input type="text" class="validate" [(ngModel)]="genreData.name" name="name" required />
+    </div>
+
+    <div class="input-field">
+      <textarea
+        id="textarea2"
+        class="materialize-textarea"
+        [(ngModel)]="genreData.description"
+        name="description"
+        data-length="140"
+      ></textarea>
+      <label for="textarea2">Description</label>
+    </div>
+      <button class="btn waves-effect waves-light purple lighten-1" name="action" type = "submit">
+        Add genre
+        <i class="material-icons right">send</i>
+      </button>
+  </form>
+</div>

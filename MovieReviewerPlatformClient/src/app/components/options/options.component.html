@@ -1,0 +1,12 @@
+<div class="vertical-navbar">
+  <ul>
+    <li (click)="navigateTo('dashboard')"><a>Dashboard</a></li>
+    <ng-container *ngIf="role === 'Admin'">
+      <li (click)="navigateTo('addMovie')"><a>Add movie</a></li>
+      <li (click)="navigateTo('addGenre')"><a>Add genre</a></li>
+    </ng-container>
+
+    <li (click)="navigateTo('allMovies')"><a>See all movies</a></li>
+    <li (click)="navigateTo('allGenres')"><a>See all genres</a></li>
+  </ul>
+</div>

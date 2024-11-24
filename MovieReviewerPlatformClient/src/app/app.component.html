@@ -1,0 +1,23 @@
+<div class="row" *ngIf="isLoggedIn">
+  <app-header></app-header>
+</div>
+
+<div class="row">
+  <div class="col s12 m4 l2 hide-on-small-only no-padding">
+    <div *ngIf="isLoggedIn">
+      <app-options></app-options>
+    </div>
+  </div>
+
+  <div class="col s12 m8 l10 no-padding">
+    <div class="container">
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="isLoggedIn">
+  <footer></footer>
+</div>

@@ -1,0 +1,36 @@
+.vertical-navbar {
+  background-color: rgb(250, 250, 250);
+  width: 100%;
+  padding: 5% 0;
+  font-family:
+    'BlinkMacSystemFont',
+    -apple-system,
+    sans-serif;
+}
+
+.vertical-navbar ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.vertical-navbar li {
+  margin: 0px 0;
+  cursor: pointer;
+}
+
+.vertical-navbar a {
+  display: block;
+  padding: 12px 20px;
+  color: #291f52;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.vertical-navbar a:hover {
+  background-color: #e5e0f7;
+  color: #5f4db3;
+}

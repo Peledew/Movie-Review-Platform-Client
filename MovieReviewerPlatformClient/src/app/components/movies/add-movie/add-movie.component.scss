@@ -1,0 +1,23 @@
+.custom-file-upload {
+  position: relative;
+  display: block;
+  margin-bottom: 30px;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.inputLabel {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.inputLabel:hover {
+  background-color: #45a049;
+}

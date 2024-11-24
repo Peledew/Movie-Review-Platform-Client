@@ -1,0 +1,46 @@
+<div class="col s12 m12 l6">
+  <div class="card large custom-movie-card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img [src]="movie.imageUrl" alt="{{ movie.title }}" class="image-size" />
+    </div>
+    <div class="card-content">
+      <div class="text-content">
+        <span class="card-title activator grey-text text-darken-4"
+          ><strong>{{ movie.title }}</strong></span
+        >
+        <div>
+          <p class="inline-block">{{ movie.genre.name }}</p>
+          <span class="inline-block right"
+            ><i class="material-icons left tiny star-icon">star_border</i><b>{{ avgRating }}</b
+            >/10</span
+          >
+        </div>
+      </div>
+
+      <div class="update-movie">
+        <ng-container *ngIf="role === 'Admin'">
+          <button
+            class="btn waves-effect white purple-text text-darken-4 margin-top-25 inline-block reset-border"
+            (click)="UpdateMovie()"
+          >
+            Movie edit
+            <i class="material-icons right">edit</i>
+          </button>
+        </ng-container>
+      </div>
+
+      <div class="rate-moive">
+        <button class="btn waves-effect waves-light purple lighten-1" name="action" (click)="openUserReview()">
+          Movie reivew
+          <i class="material-icons right">rate_review</i>
+        </button>
+      </div>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">More info..<i class="material-icons right">close</i></span>
+      <p>Release date: {{ movie.releaseDate | date: 'MMM dd, yyyy' }}</p>
+      <p>Directors: {{ movie.directors }}</p>
+      <p>Cast: {{ movie.cast }}</p>
+    </div>
+  </div>
+</div>

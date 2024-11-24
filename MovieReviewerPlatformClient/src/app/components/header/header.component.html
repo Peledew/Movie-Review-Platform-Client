@@ -1,0 +1,24 @@
+<header>
+  <nav class="custom-nav z-depth-0">
+    <div class="nav-wrapper">
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a (click)="signOut($event)">Sign out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="dashboard">Dashboard</a></li>
+    <li><a href="allMovies">All movies</a></li>
+    <li><a href="allGenres">All genres</a></li>
+
+    <ng-container *ngIf="role === 'Admin'">
+      <li><a href="addMovie">Add movie</a></li>
+    <li><a href="addGenre">Add genre</a></li>
+    </ng-container>
+
+    <li><a (click)="signOut($event)">Sign out</a></li>
+    
+  </ul>
+</header>

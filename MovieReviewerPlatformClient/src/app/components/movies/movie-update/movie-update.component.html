@@ -1,0 +1,74 @@
+<div class="movie-update">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="row">
+        <div class="col s12 m6 l5 no-padding">
+            <img [src]="selectedMovie.imageUrl" alt="{{ selectedMovie.title }}" class="full-size" />
+        </div>
+
+        <div class="col s12 m6 l7 no-padding">
+            <div class="image-handling">
+                <form>
+                    <div class="file-field input-field">
+                      <div class="btn purple darken-1">
+                        <span>File upload</span>
+                        <input type="file" (change)="onFileSelected($event)">
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                      </div>
+                    </div>
+                    
+                    <button class="btn waves-effect purple darken-1 margin-top-25 inline-block" (click)="UpdateMovieImage()">
+                        Update image
+                        <i class="material-icons right">system_update_alt</i>
+                    </button>
+                </form>
+    
+                <button class="btn waves-effect red darken-4 margin-top-25 inline-block" (click)="DeleteMovieImage()">
+                    Delete image
+                    <i class="material-icons right">delete</i>
+                </button>
+            </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="movieTitle">Title</label>
+        <div class="input-field">
+          <input id="movieTitle" type="text" [(ngModel)]="selectedMovie.title" />
+        </div>
+
+        <label for="movieGenre">Genre</label>
+        <div class="input-field">
+          <input id="movieGenre" type="text" [(ngModel)]="selectedMovie.genre.name" />
+        </div>
+
+        <label for="movieDirectors">Directors</label>
+        <div class="input-field">
+          <input id="movieDirectors" type="text" [(ngModel)]="selectedMovie.directors" />
+        </div>
+
+        <label for="movieCast">Cast</label>
+        <div class="input-field">
+          <input id="movieCast" type="text" [(ngModel)]="selectedMovie.cast" />
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn waves-effect purple darken-1 margin-top-25 inline-block" (click)="UpdateSelectedMovie()">
+            Update data
+            <i class="material-icons right">system_update_alt</i>
+        </button>
+
+        <button class="btn waves-effect red darken-4 margin-top-25 inline-block margin-left-30" (click)="DeleteSelectedMovie()">
+          Delete movie 
+          <i class="material-icons right">system_update_alt</i>
+      </button>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

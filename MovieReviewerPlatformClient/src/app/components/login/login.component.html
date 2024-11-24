@@ -1,0 +1,23 @@
+<div class="login">
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <div>
+      <label for="username">Username</label>
+      <input id="username" formControlName="username" type="text" />
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" />
+    </div> 
+
+    <button class="btn waves-effect waves-light margin-right-60 margin-bottom-30" type="submit" name="action">
+      Log in
+      <i class="material-icons right">send</i>
+    </button>
+
+    <button (click)="navigateToSignUp()" class="btn waves-effect waves-light margin-bottom-30">
+      Sign up
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>

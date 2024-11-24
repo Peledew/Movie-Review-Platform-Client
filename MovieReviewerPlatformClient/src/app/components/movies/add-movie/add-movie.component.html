@@ -1,0 +1,41 @@
+<div class="add-movie">
+  <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div class="input-field">
+      <label>Title</label>
+      <input type="text" class="validate" [(ngModel)]="movieData.title" name="title" required />
+    </div>
+
+    <div>
+      <label for="genreSelect">Select Genre</label>
+      <select class="block" [(ngModel)]="movieData.genre" id="genreSelect" name="genre">
+        <option active value="" disabled selected>Choose a genre</option>
+        <option *ngFor="let genre of genres" [ngValue]="genre">{{ genre.name }}</option>
+      </select>
+    </div>
+
+    <div class="input-field">
+      <input type="date" id="dateInput" [(ngModel)]="movieData.releaseDate" name="releaseDate" />
+    </div>
+
+    <div class="input-field">
+      <label>Directors</label>
+      <input type="text" class="validate" [(ngModel)]="movieData.directors" name="directors" required />
+    </div>
+
+    <div class="input-field">
+      <label>Cast</label>
+      <input type="text" class="validate" [(ngModel)]="movieData.cast" name="cast" required />
+    </div>
+
+    <!-- File Input for Image -->
+    <div class="custom-file-upload">
+      <label class="inputLabel purple darken-3" for="fileInput">Upload Image</label>
+      <input id="fileInput" type="file" (change)="onImageChange($event)" accept="image/*" />
+    </div>
+
+    <button class="btn waves-effect waves-light purple lighten-1" name="action" type = "submit">
+      Add movie
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
